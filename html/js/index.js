@@ -64,7 +64,7 @@ deleteBtn.addEventListener("click",function(){
 
     var name_delete= document.getElementById("name").value;
 
-    fetch(`http://localhost:7071/api/user?name=${name_delete}`)
+    fetch(`http://localhost:7071/api/user?name=${name_delete}`,{method:'DELETE'})
     .then(
         function(response){
             if(response.status!=200){
@@ -84,7 +84,7 @@ deleteBtn.addEventListener("click",function(){
 
 var form_update = document.getElementById("form_update");
 
-form.addEventListener('submit',function(e){
+form_update.addEventListener('submit',function(e){
     e.preventDefault()
 
     var name_update = document.getElementById("name_update").value;
@@ -93,8 +93,8 @@ form.addEventListener('submit',function(e){
     var birthday_update = document.getElementById("birthday_update").value;
     var gender_update = document.getElementById("gender_update").value;
 
-    fetch("http://localhost:7071/api/user", {
-        method:'PUT',
+    fetch("http://localhost:7071/api/user",{method:'PUT'},{
+        
         body: JSON.stringify({
             name_update:name_update,
             email_update:email_update,

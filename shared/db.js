@@ -102,7 +102,8 @@ module.exports.remove = remove;
 function put(payload){
     return new Promise ((resolve,reject) => {
 
-        const sql= `UPDATE [users].[users] SET name = @name_update, email = @email_update, )`
+        const sql= `UPDATE [users].[users] SET name = @name_update, email = @email_update, country = @country_update, birthday = @birtday_update, 
+        gender = @gender_update WHERE name = @name)`
         const request = new Request(sql, (err)=>{
             if(err){
                 reject(err)
