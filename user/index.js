@@ -29,7 +29,7 @@ module.exports = async function (context, req) {
             break
          default:
                 context.res = {
-                    body: "Please GET or POST, or DELETE"
+                    body: "Please GET,POST,DELETE or UPDATE"
                 };
                 break
     }

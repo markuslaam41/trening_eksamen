@@ -127,13 +127,11 @@ form_update.addEventListener('submit',function(e){
 /*
 form_delete.addEventListener('Submit',function(e){
     e.preventDefault()
-
     var name_delete = document.getElementById("name_delete").value;
     var email_delete = document.getElementById("email_delete").value;
     var country_delete = document.getElementById("country_delete").value;
     var birthday_delete = document.getElementById("birthday_delete").value;
     var gender_delete = document.getElementById("gender_delete").value;
-
     fetch("http://localhost:7071/api/user", {
         method:'DELETE',
         body: JSON.stringify({
@@ -147,7 +145,6 @@ form_delete.addEventListener('Submit',function(e){
             "Content-Type":"application/json; charset-UTF-8"
         }
     })
-
     .then((response)=>{
         return response.json()
     })
@@ -159,4 +156,3 @@ form_delete.addEventListener('Submit',function(e){
     })
 })
 */
-    
