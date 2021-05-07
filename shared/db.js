@@ -110,11 +110,11 @@ function put(payload){
                 console.log(err)
             }
         });
-        request.addParameter('name', TYPES.VarChar, payload.name)
-        request.addParameter('email', TYPES.VarChar, payload.email)
-        request.addParameter('country', TYPES.VarChar, payload.country)
-        request.addParameter('birthday', TYPES.Date, payload.birthday)
-        request.addParameter('gender', TYPES.VarChar, payload.gender)
+        request.addParameter('name_update', TYPES.VarChar, payload.name_update)
+        request.addParameter('email_update', TYPES.VarChar, payload.email_update)
+        request.addParameter('country_update', TYPES.VarChar, payload.country_update)
+        request.addParameter('birthday_update', TYPES.Date, payload.birthday_update)
+        request.addParameter('gender_update', TYPES.VarChar, payload.gender_update)
 
         request.on('requestCompleted',(row) => {
             console.log('User updated', row);

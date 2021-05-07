@@ -211,23 +211,29 @@
         <br>
         <h1>Explore</h1>
         <div class = "userOverview">
+
+
+          <form id="matchUser">
+
+          
           <table id = userPhotos> 
            
             <tr>
               <th>
+                
                 <img class = "profilePhotos" src = ./photos/mie.png>
                 <h3>Mie</h3>
-                <button input type="submit" name="Submit">Like</button>
+                <button input type="submit" id="Submit">Like</button>
               </th>
               <th>
                 <img class = "profilePhotos" src = ./photos/morten.png>
                 <h3>Morten</h3>
-                <button input type="submit" name="Submit">Like</button>
+                <button input type="submit" id="Submit">Like</button>
               </th> 
               <th>
                 <img class = "profilePhotos" src = ./photos/hayley.png>
                 <h3>Hayley</h3>
-                <button input type="submit" name="Submit">Like</button>
+                <button input type="submit" id="Submit">Like</button>
               </th> 
           </tr>
           <tr>
@@ -251,11 +257,24 @@
 
           </table>
         </div>
-        
+      </form>
+      <div>
+        <h1>Match now!</h1>
+        <form id="form" method="POST">
+            <input type="text" id="userId1" placeholder="Name">
+            
+            <button input type="submit" name="Submit">Post user</button>
+      
+      
+        </form>
+      
+      
+      </div>
+
       </div>
      
 
 </body>
 
-<script src="js/index.js"></script>
+<script src="js/match.js"></script>
 </html>
