@@ -28,6 +28,8 @@ form.addEventListener('submit',function(e){
     })
     .then((data)=>{
         console.log(data)
+        window.location.href = "account.html"
+
     })
     .catch((err)=>{
         console.log(err)
@@ -38,7 +40,7 @@ var getButton = document.getElementById("getUsers");
 
 getButton.addEventListener("click",function(){
 
-    var name1= document.getElementById("name").value;
+    var name1= document.getElementById("get_name1").value;
 
     fetch(`http://localhost:7071/api/user?name=${name1}`)
     .then(
@@ -47,22 +49,28 @@ getButton.addEventListener("click",function(){
                 console.log("Noe gikk galt" + response.status);
                 return;
             }
+              
             response.json().then(function (data){
+                window.location.href = "account.html" 
 
                 console.log(data);
-            });
-        }
+            })
+        }  
+        
     )
     .catch(function(err){
         console.log(err);
     });
 })
-    
-var deleteBtn= document.getElementById("deleteUsers");
 
-deleteBtn.addEventListener("click",function(){
+var form_delete = document.getElementById("deleteUser");
 
-    var name_delete= document.getElementById("name").value;
+form_delete.addEventListener('click',function(e){
+    e.preventDefault()
+
+
+    var name_delete = document.getElementById("name_delete").value;
+
 
     fetch(`http://localhost:7071/api/user?name=${name_delete}`,{method:'DELETE'})
     .then(
@@ -72,7 +80,6 @@ deleteBtn.addEventListener("click",function(){
                 return;
             }
             response.json().then(function (data){
-
                 console.log(data);
             });
         }
@@ -81,7 +88,10 @@ deleteBtn.addEventListener("click",function(){
         console.log(err);
     });
 })
+ 
+   
 
+    
 var form_update = document.getElementById("form_update");
 
 form_update.addEventListener('submit',function(e){

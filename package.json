@@ -1,17 +1,11 @@
 {
-  "name": "gk7_end",
+  "name": "frontend_backend_api_leik",
   "version": "1.0.0",
+  "description": "",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {},
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {},
+  "devDependencies": {}
 }

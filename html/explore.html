@@ -173,6 +173,15 @@
   
   
 }
+.userOverview{
+  
+  margin: 0% 8% 0% 8%;
+}
+.profilePhotos, .profilePhoto{
+  height: 350px;
+  width: 270px;
+}
+
 </style>
 <body>
     
@@ -197,49 +206,53 @@
               
           </ul>
         </nav>
-      
-        <div class = "headerTitle">         
-          <a>
-            <br>
-            Your account
-            Logged in :)
+        <br>
+        <br>
+        <br>
+        <h1>Explore</h1>
+        <div class = "userOverview">
+          <table id = userPhotos> 
+           
+            <tr>
+              <th>
+                <img class = "profilePhotos" src = ./photos/mie.png>
+                <h3>Mie</h3>
+                <button input type="submit" name="Submit">Like</button>
+              </th>
+              <th>
+                <img class = "profilePhotos" src = ./photos/morten.png>
+                <h3>Morten</h3>
+                <button input type="submit" name="Submit">Like</button>
+              </th> 
+              <th>
+                <img class = "profilePhotos" src = ./photos/hayley.png>
+                <h3>Hayley</h3>
+                <button input type="submit" name="Submit">Like</button>
+              </th> 
+          </tr>
+          <tr>
+            <th>
+              <img class = "profilePhotos" src = ./photos/markus.png>
+              <h3>Markus</h3>
+              <button input type="submit" name="Submit">Like</button>
+            </th>
+            <th>
+              <img class = "profilePhotos" src = ./photos/mats.jpg>
+              <h3>Mats</h3>
+              <button input type="submit" name="Submit">Like</button>
+            </th>
+            <th>
+              <img class = "profilePhotos" src = ./photos/victoria.png>
+              <h3>Victoria</h3>
+              <button input type="submit" name="Submit">Like</button>
+            </th>
+          </tr>
 
-            <button id="logoutButton" onclick="LogOut()">Logout</button>
-          </a>
-      
+
+          </table>
         </div>
-        <div class="your_account">
-          <h1>Update your profile</h1>
-          <form id="form_update" method="PUT">
-              <input type="text" id="name_update" placeholder="name">
-              <input type="text" id="email_update" placeholder="email">
-              <input type="text" id="country_update" placeholder="country">
-              <input type="date" id="birthday_update" placeholder="birthday">
-              <input type="text" id="gender_update" placeholder="gender">
-              <button input type="submit" name="Submit">Update user</button>
         
-        
-          </form>
-
-
-
-        </div>
-
-        <div>
-          <h1>Delete user</h1>
-             <input type = "text" id="name_delete" placeholder="Name"> 
-          <button type="button" id="deleteUsers" name="Submit">delete user</button>
-      
-      
-              
-      
-      
-          </div>
-  
-      
-
-
-  </div>
+      </div>
      
 
 </body>
