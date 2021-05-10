@@ -27,8 +27,13 @@ form.addEventListener('submit',function(e){
         return response.json()
     })
     .then((data)=>{
+        
         console.log(data)
+        
         window.location.href = "account.html"
+   
+
+
 
     })
     .catch((err)=>{
@@ -36,7 +41,15 @@ form.addEventListener('submit',function(e){
     })
 })
 
+
+
 var getButton = document.getElementById("getUsers");
+
+/*getButton.addEventListener("click", () => {
+    if(localStorage.getItem("LoggedIn") == true){
+        location.replace("account.html")
+    }
+}); */
 
 getButton.addEventListener("click",function(){
 
@@ -46,11 +59,13 @@ getButton.addEventListener("click",function(){
     .then(
         function(response){
             if(response.status!=200){
+                localStorage.getItem("LoggedIn") == true
+                location.replace("account.html")
                 console.log("Noe gikk galt" + response.status);
                 return;
             }
-              
             response.json().then(function (data){
+                localStorage.setItem ("LoggedIn", name1)
                 window.location.href = "account.html" 
 
                 console.log(data);

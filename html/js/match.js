@@ -1,11 +1,46 @@
+var likeBtn = document.getElementById("like");
+var dislikeBtm= document.getElementById("Dislike");
 
-/*var matchForm = document.getElementById("matchUser")
-
-matchForm.addEventListener("click", function(e){
-    e.preventDefault()
+function fn1(){
+    if(confirm("You liked this person")){
+        window.location.href = "yourMatches.html"
+    }
    
-    alert("Its a match")
-})*/
+
+}
+function fn2(){
+    if(confirm("Are you sure? You can't go back!!")){
+        document.getElementById("mie").style.visibility = 'hidden';
+        document.getElementById("like").style.visibility='hidden';
+        document.getElementById("Dislike").style.visibility='hidden';
+        document.getElementById("name_Mie").style.visibility='hidden';
+    }
+
+}
+
+
+
+
+   
+
+
+
+
+
+
+
+
+    
+    document.getElementById("mie").style ="hidden";
+    document.getElementById("morten").style="hidden";
+    document.getElementById("hayley");
+    document.getElementById("markus");
+    document.getElementById("mats");
+    document.getElementById("victoria");
+
+    
+
+
 
 
 

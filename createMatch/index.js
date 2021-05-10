@@ -1,3 +1,4 @@
+
 const db = require('../sharedMatch/db.js');
 
 module.exports = async function (context, req) {
@@ -19,8 +20,8 @@ module.exports = async function (context, req) {
             break
 
          default:
-                context.res = {
-                    body: "Please POST"
+               context.res = {
+                    body: "please"
                 };
                 break
     }

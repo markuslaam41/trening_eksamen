@@ -213,7 +213,9 @@
         <div class = "userOverview">
 
 
-          <form id="matchUser">
+          
+
+         
 
           
           <table id = userPhotos> 
@@ -221,43 +223,49 @@
             <tr>
               <th>
                 
-                <img class = "profilePhotos" src = ./photos/mie.png>
-                <h3>Mie</h3>
-                <button input type="submit" id="Submit">Like</button>
+                <img id="mie" class = "profilePhotos" src = ./photos/mie.png>
+                <h3 id="name_Mie">Mie</h3>
+                <button input type="submit" id="like" onclick="fn1()">Like</button>
+                <button input type="submit" id="Dislike" onclick="fn2()">Dislike</button>
               </th>
               <th>
-                <img class = "profilePhotos" src = ./photos/morten.png>
+                <img id="morten" class = "profilePhotos" src = ./photos/morten.png>
                 <h3>Morten</h3>
-                <button input type="submit" id="Submit">Like</button>
+                <button input type="submit" id="like" onclick="fn1()"> Like</button>
+                <button input type="submit" id="Dislike" onclick="fn2()">Dislike</button>
               </th> 
               <th>
-                <img class = "profilePhotos" src = ./photos/hayley.png>
+                <img id="hayley" class = "profilePhotos" src = ./photos/hayley.png>
                 <h3>Hayley</h3>
-                <button input type="submit" id="Submit">Like</button>
+                <button input type="submit" id="like" onclick="fn1()">Like</button>
+                <button input type="submit" id="Dislike" onclick="fn2()">Dislike</button>
               </th> 
           </tr>
           <tr>
             <th>
-              <img class = "profilePhotos" src = ./photos/markus.png>
+              <img id="markus" class = "profilePhotos" src = ./photos/markus.png>
               <h3>Markus</h3>
-              <button input type="submit" name="Submit">Like</button>
+              <button input type="submit" id="like" onclick="fn1()">Like</button>
+              <button input type="submit" id="Dislike" onclick="fn2()">Dislike</button>
             </th>
             <th>
-              <img class = "profilePhotos" src = ./photos/mats.jpg>
+              <img id="mats" class = "profilePhotos" src = ./photos/mats.jpg>
               <h3>Mats</h3>
-              <button input type="submit" name="Submit">Like</button>
+              <button input type="submit" id="like" onclick="fn1()">Like</button>
+              <button input type="submit" id="Dislike" onclick="fn2()">Dislike</button>
             </th>
             <th>
-              <img class = "profilePhotos" src = ./photos/victoria.png>
+              <img id="victoria" class = "profilePhotos" src = ./photos/victoria.png>
               <h3>Victoria</h3>
-              <button input type="submit" name="Submit">Like</button>
+              <button input type="submit" id="like" onclick="fn1()">Like</button>
+              <button input type="submit" id="Dislike" onclick="fn2()">Dislike</button>
             </th>
           </tr>
 
 
           </table>
         </div>
-      </form>
+     
       <div>
         <h1>Match now!</h1>
         <form id="form" method="POST">

@@ -10,12 +10,14 @@
         "post",
         "delete",
         "put"
-      ]
+      ],
+      "route":"user"
     },
     {
       "type": "http",
       "direction": "out",
       "name": "res"
     }
-  ]
+  ],
+  "scriptFile": "../user/index.js"
 }
