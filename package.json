@@ -4,11 +4,12 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "test": "mocha 'tests/unittest.js'"
+    "test": "jest"
   },
   "dependencies": {
     "assert": "^2.0.0",
     "chai": "^4.3.4",
+    "jest": "^26.6.3",
     "mocha": "^8.4.0"
   },
   "devDependencies": {}

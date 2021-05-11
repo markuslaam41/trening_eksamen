@@ -1,14 +1,19 @@
 var form = document.getElementById("form");
 
+//Adds an eventlistener to submit form
 form.addEventListener('submit',function(e){
     e.preventDefault()
-
+    //Makes variables for the different values from the form
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     var country = document.getElementById("country").value;
     var birthday = document.getElementById("birthday").value;
     var gender = document.getElementById("gender").value;
+    var interest1 = document.getElementById("interest1").value;
+    var interest2 = document.getElementById("interest2").value;
+    var interest3 = document.getElementById("interest3").value;
 
+    //Using fetch to access the localhost user page and Post the values
     fetch("http://localhost:7071/api/user", {
         method:'POST',
         body: JSON.stringify({
@@ -16,16 +21,21 @@ form.addEventListener('submit',function(e){
             email:email,
             country:country,
             birthday:birthday,
-            gender:gender
+            gender:gender,
+            interest1:interest1,
+            interest2:interest2,
+            interest3:interest3
+
         }),
         headers:{
             "Content-Type":"application/json; charset-UTF-8"
         }
     })
-
+    // Using .then to make a response and returning with json
     .then((response)=>{
         return response.json()
     })
+    //printing the data and sends the user to the html page account
     .then((data)=>{
         
         console.log(data)
@@ -33,7 +43,7 @@ form.addEventListener('submit',function(e){
         window.location.href = "account.html"
    
 
-
+    // using catch in case of an error and printing err
 
     })
     .catch((err)=>{
@@ -41,7 +51,7 @@ form.addEventListener('submit',function(e){
     })
 })
 
-
+// sets getUsers to the variabel getButton
 
 var getButton = document.getElementById("getUsers");
 
@@ -51,23 +61,30 @@ var getButton = document.getElementById("getUsers");
     }
 });*/
 
+//adding an eventlistener when user clicks on button
 getButton.addEventListener("click",function(){
 
-    var name1= document.getElementById("get_name1").value;
+    // sets the value of get_name1 to the variabel name1
 
-    fetch(`http://localhost:7071/api/user?name=${name1}`)
+    var email= document.getElementById("email_login").value;
+
+    // accessing localhost and page user?email
+
+    fetch(`http://localhost:7071/api/user?email=${email}`)
     .then(
+    //calling the function response where if the id of name is correct replaces the location
         function(response){
-            if(localStorage.getItem("LoggedIn", name1)){
+            if(localStorage.getItem("LoggedIn", email)){
 
                 location.replace("account.html")}
            else if(response.status!=200){
-               
+               // else if the id is incorrect, prints "Noe gikk galt og sender response"
                 console.log("Noe gikk galt" + response.status);
                 return;
             }
+            //Sets value loggedIn in local storage and takes the user to html page account
             response.json().then(function (data){
-                localStorage.setItem ("LoggedIn", name1)
+                localStorage.setItem ("LoggedIn", email)
                 window.location.href = "account.html" 
 
                 console.log(data);
@@ -75,47 +92,60 @@ getButton.addEventListener("click",function(){
         }  
         
     )
+    // in case of an error prints said error
     .catch(function(err){
         console.log(err);
     });
 })
 
+//creating the function
+function matchingAlgo(user1, user2){
+    
+    //requesting the interest of the user
+    var interest1 = document.getElementById("interest1")
+    var interest2 = document.getElementById("interest2")
+    var interest3 = document.getElementById("interest3")
 
-//var form_delete= document.getElementById("form_delete");
+     //creating empty array
+    user1 = []
+    user2 = []
+    //pushing the interests into arrays for the two users
+    user1.push(interest1, interest2, interest3)
+   
+    user2.push(interest1, interest2, interest3)
+  
 
- 
- 
-//var deleteUser = document.getElementById("Submit_delete");
+  // merge two arrays
+  let arr = user1.concat(user2);
 
-/*
-form_delete.addEventListener('Submit',function(e){
-    e.preventDefault()
-    var name_delete = document.getElementById("name_delete").value;
-    var email_delete = document.getElementById("email_delete").value;
-    var country_delete = document.getElementById("country_delete").value;
-    var birthday_delete = document.getElementById("birthday_delete").value;
-    var gender_delete = document.getElementById("gender_delete").value;
-    fetch("http://localhost:7071/api/user", {
-        method:'DELETE',
-        body: JSON.stringify({
-            name_delete:name_delete,
-            email_delete:email_delete,
-            country_delete:country_delete,
-            birthday_delete:birthday_delete,
-            gender_delete:gender_delete
-        }),
-        headers:{
-            "Content-Type":"application/json; charset-UTF-8"
-        }
-    })
-    .then((response)=>{
-        return response.json()
-    })
-    .then((data)=>{
-        console.log(data)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-})
-*/
+  //empty array to push the non-duplicated array
+  const result = [];
+  const map = {};
+
+  //for loop to run through the array
+  for (let i = 0; i < arr.length; i++) {
+     
+    //mapping the array
+    if (map[arr[i]]) {
+      continue;
+      
+      //we push the key which is not found yet
+    } else {
+      result.push(arr[i]);
+
+      //which equals true
+      map[arr[i]] = true;
+    }
+
+    //if the result of the array is less than 4
+  }if (result.length < 4){
+      //Console log potential match 
+  return result + "This could be a match!";
+
+//there wont be any match
+  }else{
+      return "No matches"
+  }
+}
+
+

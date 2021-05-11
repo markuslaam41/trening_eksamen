@@ -1,3 +1,4 @@
+//Was our first prototype of loggin method, NOT IN USE
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 

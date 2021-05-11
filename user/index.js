@@ -1,5 +1,7 @@
+//require the db
 const db = require('../shared/db');
 
+//Declaring and exporting function
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
@@ -10,6 +12,7 @@ module.exports = async function (context, req) {
     catch (error){
         console.log("Can't connect to DB", error.message)
     }
+    //adding methods
     switch(req.method) {
         case 'GET':
             await get(context, req);
@@ -29,28 +32,29 @@ module.exports = async function (context, req) {
             break
          default:
                 context.res = {
-                    body: "Please GET,POST,DELETE or UPDATE"
+                    body: "Hello Markus" 
                 };
                 break
     }
 }
-
+//get function
 async function get(context, req){
     try {
-        let name = req.query.name;
-        let user = await db.select(name)
+        let email = req.query.email;
+        let user = await db.select(email)
         context.res = {
             body: user
         };
     }
     catch (error){
         context.res = {
+             //respond with status 400 if it is an error
             status:400,
             body: `No user - ${error.message}`
         }
     }
 }
-
+//declaring function 
 async function post(context, req){
     try{
         let payload = req.body;
@@ -61,12 +65,13 @@ async function post(context, req){
     }
     catch (error){
         context.res = {
+             //respond with status 400 if it is an error
             status : 400,
             body: error.message
         }
     }
 }
-
+//declaring function
 async function remove (context, req){
     try{
         let name = req.query.name;
@@ -77,12 +82,13 @@ async function remove (context, req){
     }
     catch (error){
         context.res = {
+             //respond with status 400 if it is an error
             status:400,
             body: `No user - ${error.message}`
         }
     }
 }
-
+//Declaring function
 async function put(context, req){
     try{
         let payload = req.body;
@@ -93,6 +99,7 @@ async function put(context, req){
     }
     catch (error){
         context.res = {
+            //respond with status 400 if it is an error
             status : 400,
             body: error.message
         }
