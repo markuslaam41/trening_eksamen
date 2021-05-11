@@ -92,10 +92,10 @@ function select(email){
 module.exports.select = select;
 
 //the function remove : to remove a user from the DB
-function remove(name){
+function remove(email){
     return new Promise ((resolve,reject) => {
  //Using the SQL statement remove a user from the DB
-        const sql= `DELETE FROM [users].[users] where name = @name`
+        const sql= `DELETE FROM [users].[users] where email = @email`
         const request = new Request (sql, (err, rowcount)=>{
             if(err){
                 reject(err)
@@ -105,13 +105,13 @@ function remove(name){
             }
         });
         //removing the parameters we want to remove from the DB
-        request.addParameter('name', TYPES.VarChar, name)
+        request.addParameter('email', TYPES.VarChar, email)
     
         request.on('row',(columns)=>{
             resolve(columns)
         });
         connection.execSql(request)
-        return name
+        return email
     })
        
     

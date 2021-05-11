@@ -5,10 +5,10 @@ form_delete.addEventListener('click',function(e){
     e.preventDefault()
 
      //Makes variables for the value from the form
-    var name_delete = document.getElementById("name_delete").value;
+    var email_delete = document.getElementById("email_delete").value;
     
       //Using fetch to access the localhost user page and DELETE the given name
-    fetch(`http://localhost:7071/api/user?name=${name_delete}`,{method:'DELETE'})
+    fetch(`http://localhost:7071/api/user?email=${email_delete}`,{method:'DELETE'})
     .then(
 
         //Posting handling response

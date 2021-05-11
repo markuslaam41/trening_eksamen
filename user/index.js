@@ -74,8 +74,8 @@ async function post(context, req){
 //declaring function
 async function remove (context, req){
     try{
-        let name = req.query.name;
-        let user = await db.remove(name)
+        let email = req.query.email;
+        let user = await db.remove(email)
         context.res = {
             body:user
         }
