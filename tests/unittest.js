@@ -1,32 +1,37 @@
-const createMatch = require("../createMatch/index");
+const { Connection, Request, TYPES} = require('tedious'); 
 
 
+const assert = require("assert");
+const db = require("../shared/db.js");
+const config = require("../shared/config.json");
 
-/*
-const {expect} = require("chai")
-const sinon = require("sinon")
+const chai = require("chai");
+//const { assert } = require("chai");
 
-const uut = require("../testing/defaultContext.js")
+var connection = new Connection(config);
 
-const UserModel = require("../login/index.test.js")
 
-it("given correct userId should retrieve users full name" , async () => {
-
-    //given
-    const fixture = {
-        _id : "fakeuser",
-        name: "Fake",
-        surname: "User"
+describe("/Get user", () =>
+it("Should get one name in the database"), (name) =>{
+    let requestBody =  {
+            name: "Markus"
     }
-
-    let stub = sinon.stub(UserModel , "findById").returns(fixture)
-
-    //when
-    let result = await uut.getUserFullnameById(fixture._id)
-
-    //then
-    expect(result).to.eq("Fake User")
-    stub.restore()
+    assert(() => {
+        
+ const name = new Promise((resolve,reject)=>{
+        const sql = 'SELECT * FROM [users].[users] where name = "Markus"'
+       
+        request.addParameter('name', TYPES.VarChar, name)
+    
+        request.on('row',(columns)=>{
+            resolve(columns)
+        });
+        connection.execSql(request)
+        return name
+        })
+        if(name.sql == name.requestBody){
+            return "Suksess"
+        }
+    })
 
 })
-*/

@@ -4,8 +4,12 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "test": "echo \"No tests yet...\""
+    "test": "mocha 'tests/unittest.js'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "assert": "^2.0.0",
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0"
+  },
   "devDependencies": {}
 }

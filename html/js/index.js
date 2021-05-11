@@ -49,7 +49,7 @@ var getButton = document.getElementById("getUsers");
     if(localStorage.getItem("LoggedIn") == true){
         location.replace("account.html")
     }
-}); */
+});*/
 
 getButton.addEventListener("click",function(){
 
@@ -58,9 +58,11 @@ getButton.addEventListener("click",function(){
     fetch(`http://localhost:7071/api/user?name=${name1}`)
     .then(
         function(response){
-            if(response.status!=200){
-                localStorage.getItem("LoggedIn") == true
-                location.replace("account.html")
+            if(localStorage.getItem("LoggedIn", name1)){
+
+                location.replace("account.html")}
+           else if(response.status!=200){
+               
                 console.log("Noe gikk galt" + response.status);
                 return;
             }

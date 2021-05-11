@@ -5,7 +5,7 @@ form_delete.addEventListener('click',function(e){
 
 
     var name_delete = document.getElementById("name_delete").value;
-
+    
 
     fetch(`http://localhost:7071/api/user?name=${name_delete}`,{method:'DELETE'})
     .then(
@@ -15,8 +15,10 @@ form_delete.addEventListener('click',function(e){
                 return; 
             }
             response.json().then(function (data){
-                console.log(data);
-            });
+                console.log(data)
+                window.replace = "signup_login.html"
+        
+            })
         }
     )
     .catch(function(err){
